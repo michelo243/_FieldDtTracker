@@ -9,6 +9,6 @@
         public int? DepartementId { get; set; }
         public Departement? Departement { get; set; }
 
-       // public ICollection<GrantData> grantDatas { get; set; } = new List<GrantData>();
+       public ICollection<HACPtable> HACPtables { get; set; } = new List<HACPtable>();
     }
 }
