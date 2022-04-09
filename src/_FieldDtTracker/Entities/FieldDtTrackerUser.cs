@@ -12,7 +12,9 @@ namespace _FieldDtTracker.Entities
 
     public class FieldDtTrackerUser:IdentityUser
     {
-        public string FullName { get; set; } = null!;
+        public string? FullName { get; set; } 
         public string Role { get; set; } = UserRole.Admin;
     }
+
+
 }
