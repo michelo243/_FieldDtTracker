@@ -28,6 +28,7 @@ namespace _FieldDtTracker.Areas.Identity.Pages.Account
         private readonly UserManager<FieldDtTrackerUser> _userManager;
         private readonly IUserStore<FieldDtTrackerUser> _userStore;
         private readonly IUserEmailStore<FieldDtTrackerUser> _emailStore;
+       // private readonly IFullNameStore<FieldDtTrackerUser> fullNameStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
@@ -121,6 +122,9 @@ namespace _FieldDtTracker.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
+                user.FullName = Input.FullName;
+               
                 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
@@ -130,8 +134,12 @@ namespace _FieldDtTracker.Areas.Identity.Pages.Account
 
                     await _userManager.AddToRoleAsync(user, UserRole.Staff); //assign a role to the User
 
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                   // var fullname = Input.FullName;
+
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",

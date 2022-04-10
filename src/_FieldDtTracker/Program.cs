@@ -23,7 +23,16 @@ builder.Services.AddDefaultIdentity<FieldDtTrackerUser>(options =>
         options.Password.RequireUppercase = false;
         options.Password.RequireDigit = true;
     })
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddIdentity<FieldDtTrackerUser,IdentityRole>(options =>
+//{
+//    options.SignIn.RequireConfirmedAccount = true;
+//    options.Password.RequireNonAlphanumeric = false;
+//    options.Password.RequiredLength = 5;
+//    options.Password.RequireUppercase = false;
+//    options.Password.RequireDigit = true;
+//}).AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<FieldDtTrackerUser>>();
