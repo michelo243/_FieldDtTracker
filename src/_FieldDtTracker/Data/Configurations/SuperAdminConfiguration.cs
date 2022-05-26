@@ -24,7 +24,7 @@ namespace _FieldDtTracker.Data.Configurations
                 Role = UserRole.SuperAdmin
             };
 
-            superAdmin.PasswordHash = superAdmin.PassGenerate("Admin@265");
+            superAdmin.PasswordHash = superAdmin.PassGenerate("Admin@0712");
 
             builder.HasData(superAdmin);
         }

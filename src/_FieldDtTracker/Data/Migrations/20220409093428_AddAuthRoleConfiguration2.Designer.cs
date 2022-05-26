@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _FieldDtTracker.Data;
 
@@ -11,9 +12,10 @@ using _FieldDtTracker.Data;
 namespace _FieldDtTracker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220409093428_AddAuthRoleConfiguration2")]
+    partial class AddAuthRoleConfiguration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,17 +144,17 @@ namespace _FieldDtTracker.Data.Migrations
                         {
                             Id = "198E6AEA-6827-4562-B415-242146DE9B9B",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "87bd8f63-f889-4903-8094-330c4f627b04",
+                            ConcurrencyStamp = "df8cccbb-36cc-4818-a7dd-c648c70b5bbb",
                             Email = "superadmin@ner.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@NER.COM",
                             NormalizedUserName = "SUPERADMIN@NER.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKVMPdNCJpXwKto8BJiLHPY/D+J6fudaVArKHRASTQ/FdqyJptUmAYgMZ/HD8jCIxA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBVvtun3dBLL56ZKyxt5YHHq9IelRofGwRGcfHwXgRmzXnh8TuU9JHVohVk2HAkxuQ==",
                             PhoneNumber = "0811704141",
                             PhoneNumberConfirmed = true,
                             Role = "SuperAdmin",
-                            SecurityStamp = "7c6c729d-df09-41cb-ba5f-fb7e71ae8909",
+                            SecurityStamp = "1a9a971e-7658-47b3-b881-f2eb982f38d1",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@ner.com"
                         });
@@ -276,28 +278,28 @@ namespace _FieldDtTracker.Data.Migrations
                         new
                         {
                             Id = "2301D884-221A-4E7D-B509-0113DCC043E1",
-                            ConcurrencyStamp = "5b62c77f-0c82-4de7-8c0b-20636fce5864",
+                            ConcurrencyStamp = "4eee1062-d768-4626-92de-6988a459cb37",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = "7D9B7113-A8F8-4035-99A7-A20DD400F6A3",
-                            ConcurrencyStamp = "94f58d11-a944-417f-8d14-1fe67e44006a",
+                            ConcurrencyStamp = "7d8e1ab3-24fb-4b68-8b64-37196abf5e87",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "78A7570F-3CE5-48BA-9461-80283ED1D94D",
-                            ConcurrencyStamp = "36f679a4-7f84-4a5a-9894-a92b48d6eda3",
+                            ConcurrencyStamp = "1046c0b5-1b2b-48c1-b699-3dabef7ad7bf",
                             Name = "Staff",
                             NormalizedName = "STAFF"
                         },
                         new
                         {
                             Id = "FFE8796D-9AB2-4C5C-9B01-BB58C9F73657",
-                            ConcurrencyStamp = "f341b0b5-5d99-4e93-b13b-a034de22ced9",
+                            ConcurrencyStamp = "d11035bd-c8fe-4273-a030-8c18b574b42b",
                             Name = "Visitor",
                             NormalizedName = "VISITOR"
                         });
@@ -356,10 +358,12 @@ namespace _FieldDtTracker.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -403,10 +407,12 @@ namespace _FieldDtTracker.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

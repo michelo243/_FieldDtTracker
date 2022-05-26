@@ -22,7 +22,9 @@ namespace _FieldDtTracker.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Region>().HasKey(x => x.Id); 
+            modelBuilder.Entity<Region>().HasKey(x => x.Id);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Program).Assembly);
 
         }
 
